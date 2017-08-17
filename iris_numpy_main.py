@@ -37,11 +37,12 @@ synapse_2 = 2 * np.random.random((12,3)) - 1
 #print ( "Synapse 1 shape : ",synapse_1.shape)
 #print ( "Synapse 2 shape : ",synapse_2.shape)
 #make the values and labels as 2d array
-for l in range(1000) :
+for l in range(10000) :
 
     for i in range(150) :
 
         layer_0 = values[i]
+        #reshaping layer_0 from (,4) to (1,4)
         layer_0 = np.reshape(layer_0,(1,4))
         layer_1 = sigmoid (np.dot(layer_0,synapse_1))
 
@@ -55,10 +56,8 @@ for l in range(1000) :
 
         synapse_2 -= synapse_2_der
 
-layer_0 = values[101]
+layer_0 = values[51]
 layer_0 = np.reshape(layer_0,(1,4))
 layer_1 = sigmoid (np.dot(layer_0,synapse_1))
-
-layer_2 = sigmoid(np.dot(layer_1, synapse_2))
-
-print (layer_2)
+output_layer = sigmoid(np.dot(layer_1, synapse_2))
+print (output_layer)
